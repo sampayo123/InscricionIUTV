@@ -11,7 +11,7 @@ $pass=$_POST['contraseña'];
   if(!empty($user) && !empty($pass)){
 
 
-    $consul=$con->prepare('SELECT cedula,user,password FROM usuarios WHERE user=:user and password=:password');
+    $consul=$con->prepare('SELECT * FROM usuarios WHERE user=:user and password=:password');
 
       $consul->bindParam(':user',$user);
       $consul->bindParam(':password',$pass);
@@ -19,7 +19,7 @@ $pass=$_POST['contraseña'];
     
       $consul->execute();
       $results= $consul->fetch(PDO::FETCH_ASSOC);
-
+     
 
   if($user=!$results['user'] &&
        $pass!=$results['pass']){
@@ -32,7 +32,14 @@ $pass=$_POST['contraseña'];
 if($pass==$results['password']){
    if(count($results) > 0 && $pass==$results['password']){
       $_SESSION['user_id']=$results['cedula'];
-     header('location: ../index.php');
+
+      if($results[idRol]==1){
+        header('location: ../administrador/index.php');
+      
+      }elseif($results[idRol]==2){
+        header('location: ../alumno/index.php');
+      }
+  
    
     }
 
