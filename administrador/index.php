@@ -21,7 +21,6 @@ if(isset($_SESSION['user_id'])){
 }
 
 
-
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +41,7 @@ if(isset($_SESSION['user_id'])){
 
 
 <div>
-<label>id<input type="text" value="" name="id"></label>
+<label>cedula<input type="text" name="cedula" value="<?php echo $result['cedula']  ?>"  readonly="readonly" ></label>
 
 </div>
 <div>
@@ -50,15 +49,15 @@ if(isset($_SESSION['user_id'])){
 
 </div>
 <div>
-<label>apellido<input type="text" name="apellidoI"></label>
+<label>apellido<input type="text" name="apellidoI" value="<?php echo $result['apellido'] ?>" ></label>
 
 </div>
 <fieldset>
   <legend>Materias</legend>
   <input type='checkbox'
-            name='materia[]' value='PHP' > PHP
+            name='PHP' value='PHP' > PHP
   <input type='checkbox' 
-            name='materia[]' value='JAVA' > ISID
+            name='materia[]' value='ISID' > ISID
   <input type='checkbox'
             name='materia[]' value='SQL' > SQL
 	<input type='checkbox'
@@ -75,8 +74,7 @@ if(isset($_SESSION['user_id'])){
 <label>promedio <input type="text" name="promedioI"></label>
 
 </div>
-<input type="submit" value="inscribir"></input>
-<a href="./modificar-prueba.php?id=<?php echo 1 ?>">modificar</>
+<input type="submit" value="inscribir" name="inscribir"></input>
 <?php include '../include/crear.php'?>
 </form>
 

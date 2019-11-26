@@ -14,6 +14,7 @@
             <ul class="nav justufy-content-end">
                 <li class="nav-item"><a class="nav-link active" href="../alumno/index.php">Inscripcion</a></li>
                 <li class="nav-item"><a class="nav-link active" href="">Perfil</a></li>
+                <li class="nav-item"><a class="nav-link active" href="../reporte/imprimir.php">Imprimir</a></li>
                 <li class="nav-item"><a class="nav-link active" href="../login/salir.php">Salir</a></li>
             </ul>
         </nav>

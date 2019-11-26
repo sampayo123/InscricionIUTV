@@ -2,22 +2,47 @@
 
 require '../include/conexion.php';
 
+if(isset($_GET['cedula'])){
+
+    $sql="SELECT * FROM usuarios WHERE cedula=:cedula";
+
+    try{
+        $estado = $con->prepare($sql);
+     
+        $estado->bindValue(':cedula',$_GET['cedula']);
+        $estado->execute();
+
+        $obtUser = $estado->fetch(PDO::FETCH_ASSOC);
+
+    }catch(PDOExeption $e){
+        print "Error: " .$e->getMessage()."<br/>";
+        die();
+    }
+
+
+}else{
+    echo "se necesita un id";
+    exit;
+}
+
+
+
 
 
 
 try{
 
-   
-//     $nombre= $_POST['nombre'];
-//     $apellido= $_POST['apellido'];
-//     $rol= $_POST['rol'];
-//     $carrera= $_POST['carrera'];
-//     $promedio= $_POST['promedio'];
-//     $fecha= $_POST['fecha'];
-//     $usuario= $_POST['usuario'];
-//     $pass =$_POST['pass'];
-// $cedula = $_POST['cedula'];
-
+   if(isset($_POST['btnGuardar'])){
+    $nombre= $_POST['nombre'];
+    $apellido= $_POST['apellido'];
+    $rol= $_POST['rol'];
+    $carrera= $_POST['carrera'];
+    $promedio= $_POST['promedio'];
+    $fecha= $_POST['fecha'];
+    $usuario= $_POST['usuario'];
+    $pass =$_POST['pass'];
+$cedula = $_POST['cedula'];
+   }
 
     // $edit=$con->prepare('UPDATE usuarios SET 
     // cedula= ?,
@@ -44,19 +69,23 @@ pass=:pass
  WHERE cedula=:cedula');
 
 
-$edit->bindParam(':nombre',$obtUser['nombre']);
-$edit->bindParam(':apellido',$obtUser['apellido']);
-$edit->bindParam(':idRol',$obtUser['idRol']);
-$edit->bindParam(':carrera',$obtUser['carrera']);
-$edit->bindParam(':idpromedio',$obtUser['idpromedio']);
-$edit->bindParam(':fecha',$obtUser['fecha_inscripcion']);
-$edit->bindParam(':user',$obtUser['user']);
-$edit->bindParam(':pass',$obtUser['password']);
-$edit->bindParam(':cedula',$obtUser['cedula']);
-//print_r( $obtUser );
+$edit->bindParam(':nombre',$nombre);
+$edit->bindParam(':apellido',$apellido);
+$edit->bindParam(':idRol', $rol);
+$edit->bindParam(':carrera',$carrera);
+$edit->bindParam(':idpromedio', $promedio);
+$edit->bindParam(':fecha',$fecha);
+$edit->bindParam(':user',$usuario);
+$edit->bindParam(':pass', $pass);
+$edit->bindParam(':cedula',$cedula);
 
-$resultado=$edit->execute();
 
+
+
+
+$edit->execute();
+
+$resultado=$edit;
 if(isset($_POST['btnGuardar'])){
 if($resultado === TRUE){
     echo "Cambios guardados";

@@ -35,17 +35,17 @@ switch($dia){
 	break;
 	case 'Monday':
 
-		if($result['idpromedio']==1){
-			echo 'te puedes inscribir';
+		if($result['idpromedio']>=18 and $result['idpromedio']<=20){
+			echo 'te puedes inscribir<br>';
 		}else{
-			echo 'no es tu dia de inscripcion';
+			echo 'no es tu dia de inscripcion<br>';
 		}
 		echo 'Lunes';
 	break;
 	case 'Tuesday':
 			echo 'Martes<br>';
 
-		if($result['idpromedio']==2){
+		if($result['idpromedio']>=15 and $result['idpromedio']<=17 ){
 			echo 'te puedes inscribir';
 		}else{
 			echo 'no es tu dia de inscripcion';
@@ -55,7 +55,7 @@ switch($dia){
 	case 'Wednesday':
 			echo 'Miercoles<br>';
 
-		if($result['idpromedio']==3){
+		if($result['idpromedio']>=13 and $result['idpromedio']<=14 ){
 			echo 'te puedes inscribir';
 		}else{
 			echo 'no es tu dia de inscripcion';
@@ -65,7 +65,7 @@ switch($dia){
 	case 'Thursday':
 			echo 'Jueves<br>';
 
-		if($result['idpromedio']==4){
+		if($result['idpromedio']>=11 and $result['idpromedio']<=12 ){
 			echo 'te puedes inscribir';
 		}else{
 			echo 'no es tu dia de inscripcion';
@@ -75,7 +75,7 @@ switch($dia){
 	case 'Friday':
 		echo 'viernes<br>';
 
-	if($result['idpromedio']==5){
+	if($result['idpromedio']<=10){
 		echo 'te puedes inscribir';
 	}else{
 		echo 'no es tu dia de inscripcion';
