@@ -1,4 +1,30 @@
 <?php
+
+require '../include/conexion.php' ;
+if(isset($_GET['cedula'])){
+
+    $sql="SELECT * FROM usuarios WHERE cedula=:cedula";
+  
+    try{
+        $estado = $con->prepare($sql);
+     
+        $estado->bindValue(':cedula',$_GET['cedula']);
+        $estado->execute();
+  
+        $obtUser = $estado->fetch(PDO::FETCH_ASSOC);
+     
+    }catch(PDOExeption $e){
+        print "Error: " .$e->getMessage()."<br/>";
+        die();
+    }
+  
+  
+  }else{
+    echo "se necesita un id";
+    exit;
+  }
+
+
 require('./fpdf.php');
 
 
@@ -17,9 +43,13 @@ function Header()
     $this->Cell(40,10,'Datos y horario',0,0,'C');
     // Line break
     $this->Ln(20);
-    $this->cell(40,10, 'Cedula:',0,0,'C',0);
+    $this->cell(40,10, 'Cedula:',0,0,'C',);
      $this->cell(40,10, 'Nombre:',0,0,'C',0);
-     $this->cell(40,10,  'Apellido:',0,1,'C',0);
+     $this->cell(40,10, 'Apellido:',0,0,'C',0);
+     $this->cell(40,10,  'carrera:',0,0,'C',0);
+     $this->cell(40,10, 'promedio:',0,0,'C',0);
+     $this->cell(40,10,  'fecha:',0,1,'C',0);
+    
 
 }
 
@@ -34,21 +64,22 @@ function Footer()
     $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
 }
 }
-include '../include/ver.php';
-$resultado;
+
 
 
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','',12);
-foreach($resultado as $fila){
-    $pdf->cell(40,10,  $fila['cedula'],0,0,'C',0);
-     $pdf->cell(40,10,  $fila['nombre'],0,0,'C',0);
-     $pdf->cell(40,10,  $fila['apellido'],0,1,'C',0);
 
-}
+    $pdf->cell(40,10,  $obtUser['cedula'],0,0,'C',0);
+     $pdf->cell(40,10,  $obtUser['nombre'],0,0,'C',0);
+    $pdf->cell(40,10,  $obtUser['apellido'],0,0,'C',0);
+     $pdf->cell(40,10,  $obtUser['carrera'],0,0,'C',0);
+     $pdf->cell(40,10,  $obtUser['idpromedio'],0,0,'C',0);
+     $pdf->cell(40,10,  $obtUser['fecha_inscripcion'],0,1,'C',0);
+     
+
+
 $pdf->Output();
-
-
 
 ?>

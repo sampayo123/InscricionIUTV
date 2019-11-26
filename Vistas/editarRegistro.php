@@ -1,6 +1,7 @@
 <?php
 
 require '../include/conexion.php';
+include '../include/fecha.php';
 
 if(isset($_GET['cedula'])){
 
@@ -13,7 +14,7 @@ if(isset($_GET['cedula'])){
         $estado->execute();
 
         $obtUser = $estado->fetch(PDO::FETCH_ASSOC);
-     
+      print_r($obtUser);
     }catch(PDOExeption $e){
         print "Error: " .$e->getMessage()."<br/>";
         die();
@@ -72,7 +73,7 @@ if(isset($_GET['cedula'])){
 
     <div class="form-group">
     <label for="inputFecha">Fecha</label>
-    <input type="date" class="form-control" id="inputFecha"  name="fecha" value="<?php echo $obtUser['fecha']?>">
+    <input type="timestamp" class="form-control" id="inputFecha"  name="fecha" value="<?php echo $fechaDMA;?>">
   </div>
     <div class="form-group col-md-4">
     <label for="inputCity">Usuario</label>
@@ -85,7 +86,6 @@ if(isset($_GET['cedula'])){
   </div>
   <div class="form-group">
   </div>
- <a href="../include/editar.php">modificar</a>
   <button type="submit" class="btn btn-primary" name="btnGuardar">Guardar</button>
  <?php
  include '../include/editar.php';?>

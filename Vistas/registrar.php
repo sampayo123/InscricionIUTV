@@ -37,12 +37,12 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Promedio</label>
-      <input type="number" class="form-control" id="inputPromedio" min="1" max="5" name="promedio" required>
+      <input type="number" class="form-control" id="inputPromedio" min="1" max="20" name="promedio" required>
     </div>
 
     <div class="form-group">
     <label for="inputFecha">Fecha</label>
-    <input type="date" class="form-control" id="inputFecha"  name="fecha">
+    <input type="timestamp" class="form-control" id="inputFecha"  name="fecha">
   </div>
     <div class="form-group col-md-4">
     <label for="inputCity">Usuario</label>
