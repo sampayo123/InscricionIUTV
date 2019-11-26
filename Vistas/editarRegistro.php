@@ -8,11 +8,12 @@ if(isset($_GET['cedula'])){
 
     try{
         $estado = $con->prepare($sql);
+     
         $estado->bindValue(':cedula',$_GET['cedula']);
         $estado->execute();
 
         $obtUser = $estado->fetch(PDO::FETCH_ASSOC);
-
+     
     }catch(PDOExeption $e){
         print "Error: " .$e->getMessage()."<br/>";
         die();
@@ -23,8 +24,6 @@ if(isset($_GET['cedula'])){
     echo "se necesita un id";
     exit;
 }
-
-
 
 ?>
 
@@ -86,7 +85,7 @@ if(isset($_GET['cedula'])){
   </div>
   <div class="form-group">
   </div>
- 
+ <a href="../include/editar.php">modificar</a>
   <button type="submit" class="btn btn-primary" name="btnGuardar">Guardar</button>
  <?php
  include '../include/editar.php';?>

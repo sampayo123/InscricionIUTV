@@ -36,7 +36,7 @@ if(isset($_SESSION['user_id'])){
 
 </head>
 <body>
-<header><?php include '../menu/menu.php' ?></header>
+<header><?php include 'menu/menu.php' ?></header>
 
 
 <h1>Bienvenido <?php echo $user['nombre']?></h1>
