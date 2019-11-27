@@ -36,19 +36,21 @@ switch($dia){
 	case 'Monday':
 
 		if($result['idpromedio']>=18 and $result['idpromedio']<=20){
-			echo 'te puedes inscribir<br>';
+			$inscribir= 'te puedes inscribir<br>';
 		}else{
-			echo 'no es tu dia de inscripcion<br>';
+			$noInscipcion='no es tu dia de inscripcion<br>';
 		}
-		echo 'Lunes';
+		$lunes= 'Lunes';
 	break;
 	case 'Tuesday':
-			echo 'Martes<br>';
+			echo "Martes - $fecha_Actual";
 
 		if($result['idpromedio']>=15 and $result['idpromedio']<=17 ){
-			echo 'te puedes inscribir';
+			$inscribir= 'te puedes inscribir<br>';
+			
 		}else{
-			echo 'no es tu dia de inscripcion';
+			
+			$noInscipcion='no es tu dia de inscripcion<br>';
 		}
 		
 	break;
@@ -56,9 +58,9 @@ switch($dia){
 			echo 'Miercoles<br>';
 
 		if($result['idpromedio']>=13 and $result['idpromedio']<=14 ){
-			echo 'te puedes inscribir';
+			$inscribir= 'te puedes inscribir<br>';
 		}else{
-			echo 'no es tu dia de inscripcion';
+			$noInscipcion='no es tu dia de inscripcion<br>';
 		}
 		
 	break;
@@ -66,9 +68,9 @@ switch($dia){
 			echo 'Jueves<br>';
 
 		if($result['idpromedio']>=11 and $result['idpromedio']<=12 ){
-			echo 'te puedes inscribir';
+			$inscribir= 'te puedes inscribir<br>';
 		}else{
-			echo 'no es tu dia de inscripcion';
+			$noInscipcion='no es tu dia de inscripcion<br>';
 		}
 		
 	break;
@@ -76,9 +78,12 @@ switch($dia){
 		echo 'viernes<br>';
 
 	if($result['idpromedio']<=10){
-		echo 'te puedes inscribir';
+		$inscribir= 'te puedes inscribir<br>';
 	}else{
-		echo 'no es tu dia de inscripcion';
+		if(isset($_POST['btn'])){
+		
+		}
+		$noInscipcion='no es tu dia de inscripcion<br>';
 	}
 	break;
 
@@ -107,6 +112,29 @@ switch($dia){
 
 
 <h1>Bienvenido <?php echo $user['nombre']?></h1>
+
+<?php
+
+if(isset($inscribir)){
+if($inscribir ==='te puedes inscribir<br>')
+{	 echo $inscribir;
+	include '../form.php';
+}
+}
+if(isset($noInscipcion)){
+if($noInscipcion==='no es tu dia de inscripcion<br>')
+{	 echo $noInscipcion;
+	
+}}
+?>
+
+
+
+
+
+
+
+
 
 </body>
 </html>

@@ -10,4 +10,11 @@ $guardar->execute();
 $resultado=$guardar->fetchAll();
 
 
+
+$vers='SELECT * FROM inscripcion';
+$guardars=$con->prepare($ver);
+$guardars->execute();
+
+$resultados=$guardar->fetchAll();
+print_r($resultados);
 ?>

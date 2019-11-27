@@ -27,6 +27,12 @@ if($result=== TRUE){
     die();
 }
 
+if(!empty($_POST['materia'])){
+    // Bucle para almacenar y mostrar los valores de la casilla de verificación comprobación individual.
+    foreach($_POST['materia'] as $selected){
+    echo $selected."</br>";
+    }}
+
 
 
 
