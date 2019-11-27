@@ -64,7 +64,7 @@ if($pass==$results['password']){
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <h5 class="card-title text-center">Login</h5>
+            <h5 class="card-title text-center">Bienvenido</h5>
             <form action="" method="POST" class="form-signin">
               <div class="form-label-group">
 			  <label for="idcedula">Usuario</label>
@@ -78,8 +78,7 @@ if($pass==$results['password']){
               </div>
 
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Recordarme</label>
+               
               </div>
 			  <button type="submit" class="btn btn-primary" name="btn">Entrar</button>
         <button type="delete" class="btn btn-danger" name="btn">borrar</button>

@@ -2,6 +2,7 @@
 
 session_start();
 require '../include/conexion.php';
+require '../include/conexion.php';
 if(isset($_SESSION['user_id'])){
 	//echo $_SESSION['user_id'];
 	$consult=$con->prepare('SELECT * FROM usuarios WHERE cedula=:cedula');

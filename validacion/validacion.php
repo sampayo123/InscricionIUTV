@@ -9,7 +9,6 @@ if(isset($_POST['btnRegistro'])){
     $rol= $_POST['rol'];
     $carrera= $_POST['carrera'];
     $promedio= $_POST['promedio'];
-    $fecha= $_POST['fecha'];
     $usuario= $_POST['usuario'];
     $pass =$_POST['pass'];
 
@@ -42,7 +41,10 @@ if(isset($_POST['btnRegistro'])){
        
       echo "*Introduce un nombre";
      
-      }else{
+      }else if(is_numeric($nombre)){
+        echo "*Solo se Admiten letras en el campo nombre";
+        die();
+    }else{
          $nombre= strip_tags($nombre);
          $nombre=htmlspecialchars($nombre);
          $nombre= stripslashes($nombre);
@@ -68,7 +70,10 @@ if(isset($_POST['btnRegistro'])){
        
         echo "*Introduce un apellido";
        
-        }else{
+        }else if(is_numeric($apellido)){
+          echo "<br>*Solo se Admiten letras en el campo  apellido<br>";
+          die();
+      }else{
            $apellido= strip_tags($apellido);
            $apellido=htmlspecialchars($apellido);
            $apellido= stripslashes($apellido);
@@ -121,11 +126,14 @@ if(isset($_POST['btnRegistro'])){
 
 
              //saniamiento y limpieza del carrera
-      if(empty($apellido)){
+      if(empty($carrera)){
        
         echo "*Introduce una carrera";
        
-        }else{
+        }if(is_numeric($carrera)){
+          echo "<br>*Solo se Admiten letras en el campo  carrera<br>";
+          die();
+      }else{
            $carrera= strip_tags($carrera);
            $carrera=htmlspecialchars($carrera);
            $carrera= stripslashes($carrera);
@@ -247,6 +255,7 @@ if(isset($_POST['btnRegistro'])){
      and !empty($usuario)
      and !empty($pass)){
         include '../include/crear.php';
+        
       }
 
 

@@ -58,7 +58,11 @@
   <button type="submit" class="btn btn-primary" name="btnRegistro">Crear usuario</button>
   <?php include '../validacion/validacion.php ';  
     include '../include/crear.php ';  
-
+    if($result=== TRUE){
+   header('location: ../vistas/verRegistro.php');
+   
+     }
+   
   ?> 
 
 

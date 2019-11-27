@@ -79,10 +79,12 @@ if(isset($_GET['cedula'])){
     ?>
   <div class="form-group col-md-4">
     <label for="exampleFormControlTextarea1">Materias inscritas</label>
-    <textarea class="form-control"  readonly="readonly" id="exampleFormControlTextarea1" values="" rows="3"><?php foreach($r as $dato){
-    echo  $dato['descripcion']." ";
-      } ?>
-    </textarea>
+    <
+      <?php foreach($r as $dato){ ?>
+      <br>
+        <input type='checkbox' name='materia[]' value='1' checked disabled> <?= $dato['descripcion'] ?> 
+       <?php } ?>
+ 
   </div>
   </div>
   <div class="form-group col-md-3">
@@ -90,7 +92,6 @@ if(isset($_GET['cedula'])){
     <img src="../src/icon-impresora.png"  width="25" heigt="25" class="d-inline-block align-top" onclick="location.href='../reporte/imprimir.php?cedula=<?php echo $obtUser['cedula'] ?>'">
     </div>
 
-  <!-- //icon-impresora -->
   
 </form>
 

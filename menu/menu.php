@@ -11,7 +11,7 @@
 </head>
 <body>
 <header>
-        <nav class="navbar navbar-dark bg-dark"> 
+        <nav class="navbar "> 
             <a class="navbar-brand" href="../administrador/index.php" > 
                 <img src="../src/icon-inscripcion.png"  width="30" heigt="30" class="d-inline-block align-top"> Inicio</a>
             <ul class="nav justufy-content-end">

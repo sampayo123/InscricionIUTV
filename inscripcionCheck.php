@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require '../include/conexion.php';
+require 'include/conexion.php';
 if(isset($_SESSION['user_id'])){
 	//echo $_SESSION['user_id'];
 	$consult=$con->prepare('SELECT * FROM usuarios WHERE cedula=:cedula');
@@ -16,13 +16,6 @@ if(isset($_SESSION['user_id'])){
 	if(count($result)>0){
 		$user=$result;
 	}	
-
-	if($_SESSION['user_id']==24206790){
-	
-	}else{
-		header('location: ../alumno/index.php');
-	}
-	
 }else{
 	header('location: vistas/login.php');
 }
@@ -35,14 +28,15 @@ if(isset($_SESSION['user_id'])){
 <head>
 	<title>Incripcion</title>
 	<meta charset="utf-8">
-	 <link rel="stylesheet" href="../css/bootstrap-4.3.1-dist/css/bootstrap.css">
+	 <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap.css">
 
 </head>
 <body>
-<header><?php include '../menu/menu.php' ?></header>
+<header><?php include 'menu/menu1.php' ?></header>
 
 
 <h1>Bienvenido <?php echo $user['nombre']?></h1>
+<p>Ya estas inscrito</p>
 
 </body>
 </html>

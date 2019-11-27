@@ -4,6 +4,7 @@ require '../include/ver.php';
 
 
 
+
 require '../include/conexion.php';
 
 if(isset($_GET['cedula'])){
@@ -23,7 +24,6 @@ try{
 
 
 }
-
 
 
 ?>
