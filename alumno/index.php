@@ -25,8 +25,6 @@ if(isset($_SESSION['user_id'])){
 	header('location: vistas/login.php');
 }
 
-
-
 include '../include/fecha.php';
 
 switch($dia){
@@ -87,15 +85,10 @@ switch($dia){
 	}
 	break;
 
-
+	break;
 	default:
 	echo "no existe";
 }
-
-
-
-
-
 
 ?>
 
@@ -114,10 +107,10 @@ switch($dia){
 <h1>Bienvenido <?php echo $user['nombre']?></h1>
 
 <?php
-
 if(isset($inscribir)){
 if($inscribir ==='te puedes inscribir<br>')
 {	 echo $inscribir;
+	
 	include '../form.php';
 }
 }
@@ -125,15 +118,10 @@ if(isset($noInscipcion)){
 if($noInscipcion==='no es tu dia de inscripcion<br>')
 {	 echo $noInscipcion;
 	
-}}
+}
+}
+
 ?>
-
-
-
-
-
-
-
 
 
 </body>

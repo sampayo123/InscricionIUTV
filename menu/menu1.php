@@ -14,7 +14,6 @@
             <ul class="nav justufy-content-end">
                 <li class="nav-item"><a class="nav-link active" href="../alumno/index.php">Inscripcion</a></li>
                 <li class="nav-item"><a class="nav-link active" href="../perfiles/perfil2.php?cedula=<?php echo $user['cedula']?>">Perfil</a></li>
-                <li class="nav-item"><a class="nav-link active" href="../reporte/imprimir.php?cedula=<?php echo $user['cedula']?>">Imprimir</a></li>
                 <li class="nav-item"><a class="nav-link active" href="../login/salir.php">Salir</a></li>
             </ul>
         </nav>

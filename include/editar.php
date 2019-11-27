@@ -34,7 +34,6 @@ if(isset($_POST['btnGuardar'])){
     $rol= $_POST['rol'];
     $carrera= $_POST['carrera'];
     $promedio= $_POST['promedio'];
-    $fecha= $_POST['fecha'];
     $usuario= $_POST['usuario'];
     $pass =$_POST['pass'];
     $cedula = $_POST['cedula'];
@@ -47,7 +46,6 @@ if(isset($_POST['btnGuardar'])){
     idRol=:idRol,
     carrera=:carrera,
     idpromedio=:idpromedio,
-    fecha_inscripcion=:fecha,
     user=:user,
     pass=:pass
     WHERE cedula=:cedula');
@@ -57,7 +55,6 @@ if(isset($_POST['btnGuardar'])){
     $edit->bindParam(':idRol', $rol);
     $edit->bindParam(':carrera',$carrera);
     $edit->bindParam(':idpromedio', $promedio);
-    $edit->bindParam(':fecha',$fecha);
     $edit->bindParam(':user',$usuario);
     $edit->bindParam(':pass', $pass);
     $edit->bindParam(':cedula',$cedula, PDO::PARAM_INT);

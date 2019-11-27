@@ -1,6 +1,8 @@
 <?php
 
 require '../include/conexion.php';
+require '../include/ver.php';
+
 
 
 if(isset($_GET['cedula'])){
@@ -67,14 +69,28 @@ if(isset($_GET['cedula'])){
   </div>
     <div class="form-group">
     <label for="inputFecha">Fecha</label>
-    <input type="date" class="form-control" id="inputFecha"  readonly="readonly" name="fecha" value="<?php echo $obtUser['fecha']?>">
+    <input type="timestamp" class="form-control" id="inputFecha"  readonly="readonly" name="fecha" value="<?php foreach($r as $dato){
+    echo  $dato['fecha_inscripcion'];
+      } ?>">
   </div>
-  
+  <?php include '../include/ver.php';
+     
+     
+    ?>
+  <div class="form-group col-md-4">
+    <label for="exampleFormControlTextarea1">Materias inscritas</label>
+    <textarea class="form-control"  readonly="readonly" id="exampleFormControlTextarea1" values="" rows="3"><?php foreach($r as $dato){
+    echo  $dato['descripcion']." ";
+      } ?>
+    </textarea>
   </div>
-  <div class="form-group">
   </div>
+  <div class="form-group col-md-3">
+    <label for="inputContraseña">Imprimir</label><br>
+    <img src="../src/icon-impresora.png"  width="25" heigt="25" class="d-inline-block align-top" onclick="location.href='../reporte/imprimir.php?cedula=<?php echo $obtUser['cedula'] ?>'">
+    </div>
 
-
+  <!-- //icon-impresora -->
   
 </form>
 

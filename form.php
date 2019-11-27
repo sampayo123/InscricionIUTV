@@ -17,7 +17,7 @@
   <div class="form-row">
     <div class="form-group col-md-4">
       <label >Fecha</label>
-      <input type="timestamp"  readonly="readonly" name="fecha_inscripcionI" value="<?php echo $fechaDMA?>" class="form-control" >
+      <input type="timestamp"  readonly="readonly" name="fecha_inscripcionI" value="<?php echo $fecha_Actual?>" class="form-control" >
     </div>
     <div class="form-group col-md-4">
       <label>Promedio</label>
@@ -27,24 +27,25 @@
     </fieldset>
      <legend>Materias</legend>
   <input type='checkbox'
-            name='PHP' value='PHP' > PHP
+            name='materia[]' value='1' > PHP
   <input type='checkbox' 
-            name='materia[]' value='ISID' > ISID
+            name='materia[]' value='2' > ISID
   <input type='checkbox'
-            name='materia[]' value='SQL' > SQL
+            name='materia[]' value='3' > SQL
 	<input type='checkbox'
-            name='materia[]' value='ADS' > ADS
+            name='materia[]' value='4' > ADS
 	<input type='checkbox'
-            name='materia[]' value='ICO' > ICO
+            name='materia[]' value='5' > ICO
+            
+ 
  </fieldset>
     </div>
   </div>
   <div class="form-group">
   </div>
-  <div class="form-group col-md-4">
-    <label for="exampleFormControlTextarea1">Materias inscritas</label>
-    <textarea class="form-control"  readonly="readonly" id="exampleFormControlTextarea1" value="" rows="3"></textarea>
-  </div>
   <button type="submit" class="btn btn-primary"  name="inscribir">Inscribir</button>
-  <?php include '../include/crear.php'?>
+
+
+  <?php include '../include/crearI.php';
+  ?>
 </form>

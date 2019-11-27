@@ -1,6 +1,7 @@
 <?php
 
 require '../include/conexion.php';
+require '../include/ver.php';
 
 if(isset($_GET['cedula'])){
 
@@ -72,7 +73,9 @@ if(isset($_GET['cedula'])){
 
     <div class="form-group">
     <label for="inputFecha">Fecha</label>
-    <input type="date" class="form-control" id="inputFecha"  name="fecha" readonly="readonly" value="<?php echo $obtUser['fecha']?>">
+    <input type="timestamp" class="form-control" id="inputFecha"  name="fecha" readonly="readonly" value="<?php foreach($r as $dato){
+    echo  $dato['fecha_inscripcion'];
+      } ?>">
   </div>
     <div class="form-group col-md-4">
     <label for="inputCity">Usuario</label>
@@ -82,10 +85,17 @@ if(isset($_GET['cedula'])){
     <label for="inputContraseña">Contraseña</label>
       <input type="password" class="form-control" id="inputContraseña" name="pass" readonly="readonly" required value="<?php echo $obtUser['password']?>">
     </div>
-  </div>
-  <div class="form-group">
-  </div>
 
+
+    <div class="form-group col-md-3">
+    <label for="inputContraseña">Imprimir</label><br>
+    <img src="../src/icon-impresora.png"  width="25" heigt="25" class="d-inline-block align-top" onclick="location.href='../reporte/imprimir.php?cedula=<?php echo $obtUser['cedula'] ?>'">
+    </div>
+    
+  </div>
+  </div>
+ 
+  
 
   
 </form>

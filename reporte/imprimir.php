@@ -1,6 +1,7 @@
 <?php
 
 require '../include/conexion.php' ;
+require '../include/ver.php' ;
 if(isset($_GET['cedula'])){
 
     $sql="SELECT * FROM usuarios WHERE cedula=:cedula";
@@ -43,12 +44,12 @@ function Header()
     $this->Cell(40,10,'Datos y horario',0,0,'C');
     // Line break
     $this->Ln(20);
-    $this->cell(40,10, 'Cedula:',0,0,'C',);
+    $this->cell(40,10, 'Cedula:',0,0,'C',0);
      $this->cell(40,10, 'Nombre:',0,0,'C',0);
      $this->cell(40,10, 'Apellido:',0,0,'C',0);
      $this->cell(40,10,  'carrera:',0,0,'C',0);
-     $this->cell(40,10, 'promedio:',0,0,'C',0);
-     $this->cell(40,10,  'fecha:',0,1,'C',0);
+     $this->cell(40,10, 'promedio:',0,1,'C',0);
+     $this->cell(40,20,  'fecha:',0,0.5,'C',0);
     
 
 }
@@ -65,7 +66,9 @@ function Footer()
 }
 }
 
-
+ foreach($r as $dato){
+  
+      } 
 
 $pdf = new PDF();
 $pdf->AddPage();
@@ -75,8 +78,8 @@ $pdf->SetFont('Arial','',12);
      $pdf->cell(40,10,  $obtUser['nombre'],0,0,'C',0);
     $pdf->cell(40,10,  $obtUser['apellido'],0,0,'C',0);
      $pdf->cell(40,10,  $obtUser['carrera'],0,0,'C',0);
-     $pdf->cell(40,10,  $obtUser['idpromedio'],0,0,'C',0);
-     $pdf->cell(40,10,  $obtUser['fecha_inscripcion'],0,1,'C',0);
+     $pdf->cell(40,10,  $obtUser['idpromedio'],0,1,'C',0);
+     $pdf->cell(40,10,   $dato['fecha_inscripcion'],0,1,'C',0);
      
 
 

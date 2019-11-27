@@ -1,7 +1,8 @@
 <?php
 
 require '../include/conexion.php';
-include '../include/fecha.php';
+
+include '../include/ver.php';
 
 if(isset($_GET['cedula'])){
 
@@ -14,7 +15,7 @@ if(isset($_GET['cedula'])){
         $estado->execute();
 
         $obtUser = $estado->fetch(PDO::FETCH_ASSOC);
-      print_r($obtUser);
+    //  print_r($obtUser);
     }catch(PDOExeption $e){
         print "Error: " .$e->getMessage()."<br/>";
         die();
@@ -44,7 +45,7 @@ if(isset($_GET['cedula'])){
   <div class="form-row">
   <div class="form-group col-md-3">
       <label for="inputCedula">Cedula</label>
-      <input type="text" class="form-control" id="inputCedula" placeholder="Cedula" name="cedula" value="<?php echo $obtUser['cedula']?>" required autofocus>
+      <input type="text" class="form-control" id="inputCedula" placeholder="Cedula" name="cedula" readonly="readonly"  value="<?php echo $obtUser['cedula']?>" required autofocus>
     </div>
     <div class="form-group col-md-3">
       <label for="inputNombre">Nombre</label>
@@ -73,7 +74,9 @@ if(isset($_GET['cedula'])){
 
     <div class="form-group">
     <label for="inputFecha">Fecha</label>
-    <input type="timestamp" class="form-control" id="inputFecha"  name="fecha" value="<?php echo $fechaDMA;?>">
+    <input type="timestamp" class="form-control" id="inputFecha" readonly="readonly"  name="fecha" value="<?php foreach($r as $dato){
+    echo  $dato['fecha_inscripcion'];
+      } ?>">
   </div>
     <div class="form-group col-md-4">
     <label for="inputCity">Usuario</label>
