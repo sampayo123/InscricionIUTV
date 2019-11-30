@@ -13,7 +13,7 @@ if(isset($_SESSION['user_id'])){
 
 	 $result= $consult->fetch(PDO::FETCH_ASSOC);
 	
-	//print_r($result);
+//	print_r($result);
 	$user="";
 	
 
@@ -24,6 +24,73 @@ if(isset($_SESSION['user_id'])){
 }else{
 	header('location: vistas/login.php');
 }
+
+
+
+include '../include/fecha.php';
+
+switch($dia){
+	case 'Sunday':
+		echo "Domingo<br>";
+	break;
+	case 'Monday':
+
+		if($result['idpromedio']==1){
+			echo 'te puedes inscribir';
+		}else{
+			echo 'no es tu dia de inscripcion';
+		}
+		echo 'Lunes';
+	break;
+	case 'Tuesday':
+			echo 'Martes<br>';
+
+		if($result['idpromedio']==2){
+			echo 'te puedes inscribir';
+		}else{
+			echo 'no es tu dia de inscripcion';
+		}
+		
+	break;
+	case 'Wednesday':
+			echo 'Miercoles<br>';
+
+		if($result['idpromedio']==3){
+			echo 'te puedes inscribir';
+		}else{
+			echo 'no es tu dia de inscripcion';
+		}
+		
+	break;
+	case 'Thursday':
+			echo 'Jueves<br>';
+
+		if($result['idpromedio']==4){
+			echo 'te puedes inscribir';
+		}else{
+			echo 'no es tu dia de inscripcion';
+		}
+		
+	break;
+	case 'Friday':
+		echo 'viernes<br>';
+
+	if($result['idpromedio']==5){
+		echo 'te puedes inscribir';
+	}else{
+		echo 'no es tu dia de inscripcion';
+	}
+	break;
+
+
+	default:
+	echo "no existe";
+}
+
+
+
+
+
 
 ?>
 

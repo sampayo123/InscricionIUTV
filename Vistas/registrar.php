@@ -38,7 +38,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Promedio</label>
-      <input type="number" class="form-control" id="inputPromedio" min="1" max="20" name="promedio" required>
+      <input type="number" class="form-control" id="inputPromedio" min="1" max="5" name="promedio" required>
     </div>
 
     <div class="form-group">
